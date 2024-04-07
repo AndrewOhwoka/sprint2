@@ -1,38 +1,205 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+li{
+  list-style: none;}
+a{
+  text-decoration: none;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.inside-container{
+  width: 1100px;
+  margin: 0 auto;
+  padding: 8px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
+  background: rgb(116, 112, 120);
+  margin: 0 auto;
+  padding: 12px;
+}
+/* .sticky {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+} */
+nav .logo-btn {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 8px;
+  border-bottom: 1px solid rgb(255, 255, 255);
 }
-
-.App-link {
-  color: #61dafb;
+nav .logo-btn img {
+  width: 40px;
+  padding-right: 8px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+nav .logo-btn a{
+  color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+}
+nav .logo-btn .bags {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  padding: 5px;
+}
+nav .logo-btn .btn {
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+.links {
+ background: rgb(116, 112, 120);
+ transform: translateX(0);
+ transition: 0.5s;
+ position: flex;
+ top: 60px;
+ bottom: 0;
+ width: 100%;
+}
+.newLinks {
+  background: rgb(116, 112, 120);
+  transform: translateX(0);
+  transition: 0.5s;
+  position: fixed;
+  top: 60px;
+  bottom: 0;
+  width: 100%;
   }
-  to {
-    transform: rotate(360deg);
-  }
+.links li a{
+  color: rgb(255, 255, 255);
+  display: block;
+  padding: 8px;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  font-size: 18px;
+  transition: 0.5s;
+  text-transform: capitalize;
+  position: relative;
 }
+.links li a:hover{
+  
+  color: rgb(241, 237, 244);
+  padding: 10px 20px;
+}
+.links li a:after{
+  content: "";
+  position: absolute;
+  width:100%;
+  /* border-bottom: 1px dashed rgb(170, 163, 163); */
+  height: auto;
+  display: block;
+  bottom: 0;
+  left : 100%;
+  transition: 0.5s;
+}
+ .links li a:hover:after{
+  left: 0;
+} 
+ .carta{
+  display: none;
+}  
+
+
+@media screen and (min-width:664px){
+  nav .logo-btn{
+     border-bottom:none;
+   }
+   .logo-btn .btn{
+     display: none;
+   }
+   nav{
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+   }
+ 
+   
+ 
+ .links{
+   display: flex;
+   background: transparent;
+   transform: translate(0);
+   position: relative;
+   top:auto;
+   bottom: auto;
+ } 
+ 
+ .links li a{
+   border-bottom: none;
+   margin-left:5px;
+ 
+ }
+ 
+ .links li a:hover{
+   padding:10px;
+ 
+ }
+ 
+ 
+ .links li a:after{
+   border-bottom: none;
+ }
+ 
+ .links li a:hover:after{
+  border-bottom: none;
+ }
+ 
+ .hide{
+   display: none;
+ 
+ }
+ 
+ 
+ 
+ .cartNav{
+   background: rgb(98, 104, 117);
+   position: fixed;
+   
+   bottom: 0;
+   /* transform: translateX(100%); */
+   right: -100%;
+   width: 100%;
+   transition: all 0.5s ease-in-out;
+   overflow: hidden;
+ }
+ 
+ .newCartNav{
+   background: rgb(98, 104, 117);
+   position: fixed;
+ 
+   bottom: 0;
+   /* transform: translateX(0%); */
+   right: 0;
+   width: 390px;
+ }
+ 
+ .dra{
+   display: flex;
+   align-items: center;
+   padding-right: 10px;
+ }
+ .carta{
+   display: block;
+   margin-left: 10px;
+  cursor: pointer;
+  color: lightgray;
+  
+ }
+ 
+ .cart span{
+   position: absolute;
+   top:-10px;
+   right:-7px;
+   background: crimson;
+   padding:  1px;
+   border-radius: 50%;
+   text-align: center;
+   width:16px;
+   height: 16px;
+   font-weight: bold;
+ 
+ }
+ 
+ }
+ 

@@ -13,20 +13,16 @@ function App() {
   return (
     <React.Fragment>
 
-
-
     <Navbar/>
 
     <Routes>
-        <Route path="/" element={<Home />} />
+        {/* <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/products" element={<Products />} />
         <Route path="/payment" element={<Payment />} />
-        <Route path="/details/:id" element={<Details />} />
+        <Route path="/details/:id" element={<Details />} /> */}
     </Routes>
     
-
-
     </React.Fragment>
    
   );
