@@ -12,11 +12,24 @@ class ProductProvider extends Component { state = {
   shipping:10,
   total:0,
 }
+
+// Open and close nav
+handleNav=()=>{
+  this.setState({navOpen:!this.state.navOpen})
+}
+
+// Cart is open and want to close it
+closeNavCart=()=>{
+ if (this.state.navOpen===true) {this.setState({navOpen:false})
+}}
+
   render() {
     return (
       <ProductContext.Provider value={{
 
-        ...this.state
+        ...this.state,
+        handleNav:this.handleNav,
+        closeNavCart:this.closeNavCart,
 
         
       }}>

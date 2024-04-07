@@ -51,10 +51,10 @@ nav .logo-btn .btn {
 }
 .links {
  background: rgb(116, 112, 120);
- transform: translateX(0);
- transition: 0.5s;
- position: flex;
- top: 60px;
+ transform: translateX(-100%);
+ transition: 0.5s ease-in-out;
+ position: fixed;
+ top: 54px;
  bottom: 0;
  width: 100%;
 }
@@ -63,7 +63,7 @@ nav .logo-btn .btn {
   transform: translateX(0);
   transition: 0.5s;
   position: fixed;
-  top: 60px;
+  top: 54px;
   bottom: 0;
   width: 100%;
   }
