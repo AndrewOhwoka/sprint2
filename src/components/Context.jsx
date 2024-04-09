@@ -1,44 +1,67 @@
 import React, { Component } from "react";
-import { Data } from  "./Data";
+import { Data } from "./Data";
 
-const ProductContext = React.createContext();
-// Provider - provides data to the application.
-// Consumer - consumes data from the application.
-class ProductProvider extends Component { state = { 
-  navOpen:false,
-  cartOpen:false,
-  data:Data,
-  cartItems:[],
-  shipping:10,
-  total:0,
-}
+// const ProductContext = React.createContext();
 
-// Open and close nav
-handleNav=()=>{
-  this.setState({navOpen:!this.state.navOpen})
-}
+// // Provider - provides data to the application.
+// // Consumer - consumes data from the application.
+// class ProductProvider extends Component {
+//   state = {
+//     navOpen: false,
+//     cartOpen: false,
+//     data: Data,
+//     cartItems: Data,
+//     shipping: 10,
+//     total: 0,
+//   };
 
-// Cart is open and want to close it
-closeNavCart=()=>{
- if (this.state.navOpen===true) {this.setState({navOpen:false})
-}}
+//   // Open and close nav
+//   handleNav = () => {
+//     this.setState({ navOpen: !this.state.navOpen });
+//   };
 
-  render() {
-    return (
-      <ProductContext.Provider value={{
+//   // Open and close cart
+//   handleCartNav = () => {
+//     if (this.state.navOpen === true) {
+//       this.setState({ navOpen: false });
+//     }
+//     this.setState({ cartOpen: !this.state.cartOpen });
+//   };
 
-        ...this.state,
-        handleNav:this.handleNav,
-        closeNavCart:this.closeNavCart,
+//   // Cart is open and want to close it
+//   closeNavCart = () => {
+//     if (this.state.navOpen === true) {
+//       this.setState({ navOpen: false });
+//     }
+//   };
 
-        
-      }}>
-        {this.props.children}
-      </ProductContext.Provider>
-    );
-  }
-}
+//   render() {
+//     return (
+//       <ProductContext.Provider
+//         value={{
+//           ...this.state,
+//           handleNav: this.handleNav,
+//           closeNavCart: this.closeNavCart,
+//           handleCartNav: this.handleCartNav,
+//         }}
+//       >
+//         {this.props.children}
+//       </ProductContext.Provider>
+//     );
+//   }
+// }
 
-const ProductConsumer = ProductContext.Consumer;
+// const ProductConsumer = ProductContext.Consumer;
 
-export { ProductProvider, ProductConsumer};
+// export { ProductProvider, ProductConsumer };
+
+export const ProductContext = React.createContext({
+  navOpen: false,
+  cartOpen: false,
+  data: Data,
+  cartItems: Data,
+  shipping: 10,
+  total: 0
+});
+
+export default ProductContext;
