@@ -57,11 +57,12 @@ import { Data } from "./Data";
 
 export const ProductContext = React.createContext({
   navOpen: false,
-  cartOpen: false,
+  cartOpen: true,
   data: Data,
-  cartItems: Data,
+  cart: Data,
   shipping: 10,
-  total: 0
+  total: 0,
+
 });
 
 export default ProductContext;

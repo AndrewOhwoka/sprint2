@@ -15,7 +15,7 @@ export default function Navbar() {
             <img src={logo} alt="logo" />
             <span className="bags">Signage</span>Craft
           </Link>
-          <div className="cart hide" onClick={closeNavCart}>
+          <div className="cart hide" onClick={handleCartNav}>
             <i className="fas fa-shopping-cart"> </i> <span>0</span>
           </div>
           <div className="btn" onClick={handleNav}>
@@ -39,10 +39,14 @@ export default function Navbar() {
                 <Link to="/products">Products</Link>
               </li>
             </ul>
+
+            {/* <Cart value={value}/> */}
+            {/* <Cart/> */}
+           
           </div>
 
-          <span className="carta">
-            <i className="fas fa-shopping-cart"></i>0
+          <span className="carta" onClick={handleCartNav}>
+            <i className="fas fa-shopping-cart cart"> <span>{Cart.length}</span></i>
           </span>
         </div>
       </nav>
