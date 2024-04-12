@@ -4,7 +4,7 @@ import { ProductContext } from "./Context";
 
 export default function Product({ data }) {
   const { id, img, title, price, isInCart } = data;
-  const { closeNavCart } = useContext(ProductContext);
+  const { closeNavCart, addTocart } = useContext(ProductContext);
 
   return (
     <div className="product">
@@ -15,12 +15,12 @@ export default function Product({ data }) {
       </Link>
       <div className="details">
         <h3>{title}</h3>
-        <h4>${price}</h4>
+        <p>${price}</p>
 
         <div className="cartBtn">
-          <button className={isInCart ? "disabled" : ""}>
+          <button onClick={addTocart} className={isInCart ? "disabled" : ""}>
             {" "}
-            <i className="fas fa-shopping-cart"></i>{" "}
+            <i className="fas fa-shopping-cart"></i>
             {isInCart ? "In Cart" : "Add To Cart"}
           </button>
         </div>

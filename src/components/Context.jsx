@@ -1,68 +1,83 @@
 import React, { Component } from "react";
 import { Data } from "./Data";
 
-// const ProductContext = React.createContext();
+export const ProductContext = React.createContext();
 
-// // Provider - provides data to the application.
-// // Consumer - consumes data from the application.
-// class ProductProvider extends Component {
-//   state = {
-//     navOpen: false,
-//     cartOpen: false,
-//     data: Data,
-//     cartItems: Data,
-//     shipping: 10,
-//     total: 0,
-//   };
+export class ProductProvider extends Component {
+  state = {
+    navOpen: false,
+    cartOpen: false,
+    data: Data,
+    cart: [],
+    shipping: 10,
+    total: 0,
+  };
 
-//   // Open and close nav
-//   handleNav = () => {
-//     this.setState({ navOpen: !this.state.navOpen });
-//   };
+  handleCartNav = () => {
+    this.setState({ cartOpen: !this.state.cartOpen });
+  };
 
-//   // Open and close cart
-//   handleCartNav = () => {
-//     if (this.state.navOpen === true) {
-//       this.setState({ navOpen: false });
-//     }
-//     this.setState({ cartOpen: !this.state.cartOpen });
-//   };
+  addToCart = (id) => {
+    console.log(`item ${id} added to cart`);
+    let check = this.state.cart.find((item) => item.id === id);
+    if (!check) {
+      const filterData = this.state.data.filter((item) => item.id === id);
+      filterData.forEach((item) => (item.isInCart = true));
+      this.setState({ cart: [...this.state.cart, ...filterData], cartOpen: true });
+    }
+  };
+ // delete item from cart
+  deleteItem = (id) => {
+    const { cart } = this.state;
+    cart.forEach((item, index) => {
+      if (item.id === id) {
+        cart.splice(index, 1);
+      }
+      item.isInCart = false;
+    })
+    this.setState({ cart: [...cart] });
+  }
 
-//   // Cart is open and want to close it
-//   closeNavCart = () => {
-//     if (this.state.navOpen === true) {
-//       this.setState({ navOpen: false });
-//     }
-//   };
+  handleNav = () => {
+    this.setState({ navOpen: !this.state.navOpen });
+  };
 
-//   render() {
-//     return (
-//       <ProductContext.Provider
-//         value={{
-//           ...this.state,
-//           handleNav: this.handleNav,
-//           closeNavCart: this.closeNavCart,
-//           handleCartNav: this.handleCartNav,
-//         }}
-//       >
-//         {this.props.children}
-//       </ProductContext.Provider>
-//     );
-//   }
-// }
+  closeNavCart = () => {
+    this.setState({ cartOpen: false });
+  };
 
-// const ProductConsumer = ProductContext.Consumer;
-
-// export { ProductProvider, ProductConsumer };
-
-export const ProductContext = React.createContext({
-  navOpen: false,
-  cartOpen: true,
-  data: Data,
-  cart: Data,
-  shipping: 10,
-  total: 0,
-
-});
+  render() {
+    return (
+      <ProductContext.Provider
+        value={{
+          ...this.state,
+          handleNav: this.handleNav,
+          closeNavCart: this.closeNavCart,
+          handleCartNav: this.handleCartNav,
+          addToCart: this.addToCart,
+          deleteItem: this.deleteItem
+        }}
+      >
+        {this.props.children}
+      </ProductContext.Provider>
+    );
+  }
+}
 
 export default ProductContext;
+
+// import React, { Component } from "react";
+// import { Data } from "./Data";
+
+// export const ProductContext = React.createContext({
+//   navOpen: false,
+//   cartOpen: false,
+//   data: Data,
+//   cart: [],
+//   shipping: 10,
+//   total: 0,
+// handleCartNav: () => {},
+// });
+
+
+// export default ProductContext;

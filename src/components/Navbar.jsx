@@ -40,13 +40,13 @@ export default function Navbar() {
               </li>
             </ul>
 
-            {/* <Cart value={value}/> */}
-            {/* <Cart/> */}
+            
+            {/* {<Cart/> } */}
            
           </div>
 
           <span className="carta" onClick={handleCartNav}>
-            <i className="fas fa-shopping-cart cart"> <span>{Cart.length}</span></i>
+            <i className="fas fa-shopping-cart cart"> <span>{cart.length}</span></i>
           </span>
         </div>
       </nav>
