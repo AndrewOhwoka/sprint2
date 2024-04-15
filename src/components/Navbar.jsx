@@ -16,7 +16,7 @@ export default function Navbar() {
             <span className="bags">Signage</span>Craft
           </Link>
           <div className="cart hide" onClick={handleCartNav}>
-            <i className="fas fa-shopping-cart"> </i> <span>0</span>
+            {/* <i className="fas fa-shopping-cart"> </i> <span>0</span> */}
           </div>
           <div className="btn" onClick={handleNav}>
             <i className="fas fa-bars"></i>
@@ -41,13 +41,13 @@ export default function Navbar() {
             </ul>
 
             
-            {/* {<Cart/> } */}
+           
            
           </div>
 
-          <span className="carta" onClick={handleCartNav}>
+          {/* <span className="carta" onClick={handleCartNav}>
             <i className="fas fa-shopping-cart cart"> <span>{cart.length}</span></i>
-          </span>
+          </span> */}
         </div>
       </nav>
     </div>
