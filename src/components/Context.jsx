@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { Component, createContext } from "react";
 import { Data } from "./Data";
 
-export const ProductContext = React.createContext();
+export const ProductContext = createContext();
 
 export class ProductProvider extends Component {
   state = {
@@ -13,49 +13,54 @@ export class ProductProvider extends Component {
     total: 0,
   };
 
-  handleCartNav = () => {
-    this.setState({ cartOpen: !this.state.cartOpen });
-  };
+  addToCart = (product) => {
+    const { cart } = this.state;
+    const itemInCart = cart.find((item) => item.id === product.id);
 
-  addToCart = (id) => {
-    console.log(`item ${id} added to cart`);
-    let check = this.state.cart.find((item) => item.id === id);
-    if (!check) {
-      const filterData = this.state.data.filter((item) => item.id === id);
-      filterData.forEach((item) => (item.isInCart = true));
-      this.setState({ cart: [...this.state.cart, ...filterData], cartOpen: true });
+    if (itemInCart) {
+      // If item is already in cart, increase its quantity
+      const updatedCart = cart.map((item) =>
+        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+      );
+      this.setState({ cart: updatedCart }, this.updateTotal);
+    } else {
+      // If item is not in cart, add it with quantity 1
+      const newItem = { ...product, quantity: 1 };
+      this.setState({ cart: [...cart, newItem], cartOpen: true }, this.updateTotal);
     }
   };
- // delete item from cart
-  deleteItem = (id) => {
-    const { cart } = this.state;
-    cart.forEach((item, index) => {
-      if (item.id === id) {
-        cart.splice(index, 1);
-      }
-      item.isInCart = false;
-    })
-    this.setState({ cart: [...cart] });
+
+  removeFromCart = (productId) => {
+    const updatedCart = this.state.cart.filter((item) => item.id !== productId);
+    this.setState({ cart: updatedCart }, this.updateTotal);
+  };
+
+  backToProducts = () => {
+    
   }
+  
 
-  handleNav = () => {
-    this.setState({ navOpen: !this.state.navOpen });
+  updateTotal = () => {
+    const { cart } = this.state;
+    const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    this.setState({ total });
   };
-
-  closeNavCart = () => {
-    this.setState({ cartOpen: false });
-  };
+  increaseItem = () => {
+   
+  }
+  decreaseItem = () => {
+    
+  }
 
   render() {
     return (
       <ProductContext.Provider
         value={{
           ...this.state,
-          handleNav: this.handleNav,
-          closeNavCart: this.closeNavCart,
-          handleCartNav: this.handleCartNav,
           addToCart: this.addToCart,
-          deleteItem: this.deleteItem
+          removeFromCart: this.removeFromCart,
+          increaseItem: this.increaseItem,
+          decreaseItem: this.decreaseItem
         }}
       >
         {this.props.children}
@@ -63,21 +68,3 @@ export class ProductProvider extends Component {
     );
   }
 }
-
-export default ProductContext;
-
-// import React, { Component } from "react";
-// import { Data } from "./Data";
-
-// export const ProductContext = React.createContext({
-//   navOpen: false,
-//   cartOpen: false,
-//   data: Data,
-//   cart: [],
-//   shipping: 10,
-//   total: 0,
-// handleCartNav: () => {},
-// });
-
-
-// export default ProductContext;

@@ -4,8 +4,13 @@ import { ProductContext } from "./Context";
 
 export default function Details() {
   const { id } = useParams();
-  const { data } = useContext(ProductContext);
+  const { data, addToCart } = useContext(ProductContext); // Assuming you have addToCart function in your context
+
   const result = data.find(item => item.id === parseInt(id));
+
+  const handleAddToCart = () => {
+    addToCart(result); // Assuming addToCart takes the product object to add to cart
+  };
 
   return (
     result && (
@@ -14,7 +19,7 @@ export default function Details() {
           <h2>Product details</h2>
           <div className="det-center">
             <div className="det-img">
-              <img src={`/${result.img}`}alt=" " />
+              <img src={`/${result.img}`} alt=" " />
             </div>
             <div className="det-info">
               <h3>{result.title}</h3>
@@ -24,7 +29,11 @@ export default function Details() {
                 <Link to="/products">
                   <button className="back-products">Back to Products</button>
                 </Link>
-                <button className="add-tocart">Add To Cart</button>
+                <Link to="/cart"> 
+                   <button className="add-tocart" onClick={handleAddToCart}>
+                    Add To Cart
+                  </button> 
+                </Link> 
               </div>
             </div>
           </div>

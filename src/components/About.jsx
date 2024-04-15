@@ -23,7 +23,11 @@ export default function About() {
 
             The African fabrics curated for this purpose are not mere textiles; they represent a vibrant celebration of African culture, known for their deep cultural significance and versatility. Ideal for crafting anything one can imagine, from clothing to home decor, these fabrics are a testament to the adaptability and appeal of African aesthetics. They serve not just as a bridge between African traditions and the diverse cultures of the world but as a colorful thread weaving together a tapestry of global cultural exchange. </p> <br />
             <p>
-            This venture transcends mere commerce; it's a journey of cultural sharing and integration, encouraging communities everywhere to explore and embrace African heritage. The goal is to foster an environment where cultures can coexist and flourish, contributing to a richer, more diverse global tapestry. By offering affordable, versatile, and vibrant African fabrics, this initiative invites people from all walks of life into a dialogue of diversity and unity, driven by a passion to share, connect, and enrich the world with the beauty of African heritage.
+            This venture transcends mere commerce; it's a journey of cultural sharing and integration, encouraging communities everywhere to explore and embrace African heritage. The goal is to foster an environment where cultures can coexist and flourish, contributing to a richer, more diverse global tapestry. By offering affordable, versatile, and vibrant African fabrics, this initiative invites people from all walks of life into a dialogue of diversity and unity, driven by a passion to share, connect, and enrich the world with the beauty of African heritage. 
+            </p> <br />
+            <p>
+            Currently, Signage Craft has recently expanded into renowned branded apparel. Check out our products!
+
 
             </p> <br />
 
