@@ -5,7 +5,7 @@ import Product from "./Product";
 export default function Products() {
   const state = useContext(ProductContext);
   const data = state.data || [];
-  const { closeNavCart, addToCart,deleteItem, increaseItem, decreaseItem } = state;
+  const { closeNavCart } = state;
 
   return (
     <div className="products">

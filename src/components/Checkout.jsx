@@ -3,7 +3,7 @@ import { ProductContext } from "./Context";
 import { useNavigate } from "react-router-dom";
 
 export default function Checkout() {
-  const { cart, total, shipping, clearCart } = useContext(ProductContext);
+  const { total, shipping, clearCart } = useContext(ProductContext);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");

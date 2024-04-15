@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import { ProductContext } from "./Context";
 import { Link } from "react-router-dom";
 import logo from "../img/logo.png";
-import Cart from "./Cart";
+
 
 export default function Navbar() {
-  const { cart, handleNav, handleCartNav, navOpen, closeNavCart } =
+  const {handleNav, handleCartNav, navOpen, closeNavCart } =
     useContext(ProductContext);
   return (
     <div className="container sticky">

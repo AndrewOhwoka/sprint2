@@ -3,7 +3,7 @@ import { ProductContext } from "./Context";
 import { Link } from "react-router-dom";
 
 export default function Cart() {
-  const { cart, total, closeNavCart, shipping, removeFromCart, increaseItem, decreaseItem } = useContext(ProductContext); // Include removeFromCart in destructuring
+  const { cart, total, closeNavCart, shipping, removeFromCart,} = useContext(ProductContext); // Include removeFromCart in destructuring
 
   return (
     <div>
